@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "632699262449",
+    "project_id": "mindcare-5ead0",
+    "storage_bucket": "mindcare-5ead0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632699262449:android:046c6feeeb039eb48f6050",
+        "android_client_info": {
+          "package_name": "chat.first.mindcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMp5wXGlY-pcyiGlvXg_oqip_8gix_MBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632699262449:android:30716a70d44cc61a8f6050",
+        "android_client_info": {
+          "package_name": "com.example.mindcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMp5wXGlY-pcyiGlvXg_oqip_8gix_MBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632699262449:android:bf83d96417a692bd8f6050",
+        "android_client_info": {
+          "package_name": "com.example.sample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMp5wXGlY-pcyiGlvXg_oqip_8gix_MBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
