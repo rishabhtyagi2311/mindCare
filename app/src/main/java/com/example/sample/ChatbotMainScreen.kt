@@ -77,7 +77,7 @@ fun Chatbot()
                 Text(
                     modifier = Modifier
                         .align(Alignment.TopCenter),
-                    text = stringResource(id = R.string.app_name),
+                    text = "Your Ai Companion ",
                     fontSize = 19.sp,
                     color = MaterialTheme.colorScheme.onPrimary
                 )

@@ -28,6 +28,15 @@ fun NavGraphBuilder.fitnessNavGraph(navController: NavHostController)
             display(navController = navController)
         }
 
+        composable(route = FitnessScreen.BmiCalculator.route)
+        {
+            BmiCalculator(navController = navController)
+        }
+        composable(route = FitnessScreen.HistoryScreen.route)
+        {
+            DisplayHistory()
+        }
+
     }
 }
 
@@ -39,5 +48,9 @@ sealed class FitnessScreen(val route : String)
     object SetTimerScreen : FitnessScreen(route = "set_timer_screen")
 
     object DisplayExercise : FitnessScreen(route = "display_exercise_screen")
+    object BmiCalculator : FitnessScreen(route = "bmi_calculator_screen")
+
+    object HistoryScreen: FitnessScreen(route = "exercise_history_screen")
+
 
 }
