@@ -107,6 +107,7 @@ fun MyTextField(labelValue : String,onTextSelected: (String)->Unit,
             onTextSelected(it)
 
         },
+        shape = RoundedCornerShape(15.dp),
         label = { Text(text = labelValue) },
         keyboardOptions = KeyboardOptions.Default,
         isError = !errorStatus
@@ -134,6 +135,7 @@ fun PasswordTextField(labelValue : String ,onTextSelected: (String)->Unit,
         onValueChange = { password.value = it
                         onTextSelected(it)},
         label = { Text(text = labelValue) },
+        shape = RoundedCornerShape(15.dp),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         trailingIcon = {
             val imageIcon =

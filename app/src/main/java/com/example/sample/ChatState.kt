@@ -5,6 +5,6 @@ import com.example.sample.data.Chat
 
 data class ChatState (
     val chatList: MutableList<Chat> = mutableListOf(),
-    val prompt: String = "",
+    var prompt: String = "",
     val bitmap: Bitmap? = null
 )

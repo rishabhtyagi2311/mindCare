@@ -69,7 +69,7 @@ fun Chatbot()
             Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(MaterialTheme.colorScheme.primary)
+                .background(Color.Cyan)
                 .height(35.dp).clickable { focusManage.clearFocus() }
 
             )
@@ -79,7 +79,7 @@ fun Chatbot()
                         .align(Alignment.TopCenter),
                     text = "Your Ai Companion ",
                     fontSize = 19.sp,
-                    color = MaterialTheme.colorScheme.onPrimary
+                    color = Color.Black
                 )
             }
         },
@@ -98,6 +98,7 @@ fun ChatScreen(paddingValues: PaddingValues) {
     val chaViewModel = viewModel<ChatViewModel>()
     val chatState = chaViewModel.chatState.collectAsState().value
     val focusManage = LocalFocusManager.current
+    var textInside  by remember{ mutableStateOf(chatState.prompt) }
 
     var uriState by remember{ mutableStateOf<Uri?>(null) }
 
@@ -174,13 +175,12 @@ fun ChatScreen(paddingValues: PaddingValues) {
             TextField(
                 modifier = Modifier
                     .weight(1f),
-                value = chatState.prompt,
+                value = textInside,
                 onValueChange = {
                     chaViewModel.onEvent(ChatUiEvent.UpdatePrompt(it))
-                },
-                placeholder = {
-                    Text(text = "Type a prompt")
+                    textInside = it
                 }
+
             )
 
             Spacer(modifier = Modifier.width(8.dp))
@@ -189,8 +189,12 @@ fun ChatScreen(paddingValues: PaddingValues) {
                 modifier = Modifier
                     .size(40.dp)
                     .clickable {
+
                         chaViewModel.onEvent(ChatUiEvent.SendPrompt(chatState.prompt, bitmap))
+                        chatState.prompt = ""
                         uriState = null
+                        textInside = ""
+
                     },
                 imageVector = Icons.Rounded.Send,
                 contentDescription = "Send prompt",
@@ -228,11 +232,11 @@ fun UserChatItem(prompt: String, bitmap: Bitmap?) {
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(12.dp))
-                .background(MaterialTheme.colorScheme.primary)
+                .background(color = Color(0xFFB2CCCC))
                 .padding(16.dp),
             text = prompt,
             fontSize = 17.sp,
-            color = MaterialTheme.colorScheme.onPrimary
+            color = Color.Black
         )
 
     }
@@ -251,7 +255,7 @@ fun ModelChatItem(response: String) {
                 .padding(16.dp),
             text = response,
             fontSize = 17.sp,
-            color = MaterialTheme.colorScheme.onPrimary
+            color = Color.Black
         )
 
     }

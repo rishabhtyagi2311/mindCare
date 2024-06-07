@@ -208,7 +208,7 @@ fun HappyPlacesHome(navController: NavHostController)
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFB2CCCC),
-                    contentColor = Color.White
+                    contentColor = Color.Black
                 )
             ) {
                 Text("Save")
@@ -231,10 +231,10 @@ fun HappyPlacesHome(navController: NavHostController)
                     modifier = Modifier.weight(0.5f),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = selected,
-                        contentColor = Color.White
+                        contentColor = Color.Black
                     )
                 ) {
-                    Text("Archives")
+                    Text("Saved Archives")
 
                 }
             }

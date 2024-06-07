@@ -9,14 +9,14 @@ import androidx.navigation.compose.composable
 
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController,parentNavController: NavHostController) {
     NavHost(
         route = Graph.ROOT,
         navController = navController,
         startDestination = BottomBarScreen.Home.route
     ) {
         composable(route = BottomBarScreen.Home.route) {
-            Home()
+            Home(parentNavController)
         }
 
         happyPlacesNavGraph(navController)

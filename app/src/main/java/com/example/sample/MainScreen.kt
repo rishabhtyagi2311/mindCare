@@ -37,7 +37,7 @@ fun MainScreen(parentNavController: NavHostController) {
             bottomBar = { BottomBar(navController = navController) },
             contentWindowInsets = ScaffoldDefaults.contentWindowInsets
         ) {
-            BottomNavGraph(navController = navController)
+            BottomNavGraph(navController = navController,parentNavController)
         }
     }
 }

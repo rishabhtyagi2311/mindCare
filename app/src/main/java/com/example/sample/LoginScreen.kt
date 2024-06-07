@@ -84,8 +84,9 @@ fun LoginScreen(navController: NavHostController)
                 DividerTextComponent()
                 Spacer(modifier = Modifier.height(20.dp))
                 ButtonComponent(value = "Register", onButtonClicked = {
-
-                })
+                        navController.navigate(ExternalScreens.SignUpScreen.route)
+                },
+                    isEnabled = true)
 
 
             }

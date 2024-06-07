@@ -13,6 +13,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.size
 import coil.compose.rememberImagePainter
@@ -24,10 +26,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
@@ -48,14 +54,31 @@ fun Archive(navController: NavHostController)
     val entriesState by archiveViewModel.entriesState.collectAsState()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
-            items(entriesState) { entry ->
-                UserEntryItem(entry = entry)
-                Spacer(modifier = Modifier.height(8.dp))
+        if (entriesState.isNotEmpty()) {
+            Column(modifier = Modifier.padding(2.dp)) {
+
+
+                androidx.compose.material3.Text(
+                    "      Down to your Memory Lane",
+
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(color = Color.Cyan),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    fontStyle = FontStyle.Italic
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
+                ) {
+                    items(entriesState) { entry ->
+                        UserEntryItem(entry = entry)
+                        Spacer(modifier = Modifier.height(8.dp))
+                    }
+                }
             }
         }
     }
@@ -67,7 +90,8 @@ fun UserEntryItem(entry: UserArchiveEntry) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp)
+            .border(2.dp, color = Color.Black),
         elevation = 4.dp
     ) {
         Column(
@@ -76,7 +100,6 @@ fun UserEntryItem(entry: UserArchiveEntry) {
             Text(text = "Title: ${entry.title}", style = MaterialTheme.typography.titleMedium)
             Text(text = "Date: ${entry.date}", style = MaterialTheme.typography.bodyMedium)
             Text(text = "Description: ${entry.description}", style = MaterialTheme.typography.bodyMedium)
-            Text(text = "uri: ${entry.images[0]}", style = MaterialTheme.typography.bodyMedium)
 
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -92,7 +115,8 @@ fun UserEntryItem(entry: UserArchiveEntry) {
                         contentDescription = null,
                         modifier = Modifier
                             .aspectRatio(1f)
-                            .padding(4.dp).size(100.dp),
+                            .padding(4.dp)
+                            .size(200.dp),
                         contentScale = ContentScale.Crop
                     )
                 }
