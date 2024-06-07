@@ -252,7 +252,7 @@ fun NewsCard(article: NewsArticle) {
     }
 }
 suspend fun fetchNewsData(onNewsFetched: (List<NewsArticle>) -> Unit) {
-    val apiKey = "086253ceeeaa469f900f15005cfcba44"
+    val apiKey = ""
     val apiUrl = "https://newsapi.org/v2/everything?q=mental%20health&sortBy=publishedAt&apiKey=$apiKey"
 
     withContext(Dispatchers.IO) {
